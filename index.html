@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porcentagem de Aproveitamento de um time</title>
+    <style>
+        body{
+            background-color: rgb(6, 70, 6);
+            color: white;
+        }
+        .input {
+            width: 100px;
+        }
+        span{
+            font-size: 25px;
+            font-weight: bold;
+            color: rgb(255, 51, 51);
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+       
+
+        let porcentagemAproveitamento = () =>{
+            let vitoria = parseFloat(document.getElementById("v").value);
+            let empate = parseFloat(document.getElementById("e").value);
+            let derrota = parseFloat(document.getElementById("d").value);
+
+            let total_de_jogos = vitoria + derrota + empate;
+            let total_de_pts_conquistados = (vitoria*3)+(empate);
+            let total_de_pts_possiveis = total_de_jogos*3;
+            let porcentagem = total_de_pts_conquistados*100/total_de_pts_possiveis;
+            
+            document.getElementById("resultado").innerHTML = porcentagem.toFixed(2)+"%";
+
+        }
+        
+
+    </script>
+    <h1>
+        Calcule a porcetagem de Aproveitamento de um time
+    </h1>
+    <br>
+    <p>
+        Digite a quantidade de vitórias do time: <input id="v" class="input" type="number">
+    </p>
+    <p>
+        Digite a quantidade de empates do time: <input id="e" class="input"  type="number">
+    </p>
+    <p>
+        Digite a quantidade de derrotas do time: <input id="d" class="input"  type="number">
+    </p>
+    <button onclick="porcentagemAproveitamento()">CALCULAR</button>
+    <p>
+        <span id="resultado"></span>
+    </p>
+</body>
+</html>
